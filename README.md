@@ -24,12 +24,15 @@ Both fine-tuning notebooks share the same pipeline:
 2. Encode `question + context`, then locate the answer's start and end token positions.
 3. Feed CamemBERT's hidden states through the custom head, then a linear layer that outputs start and end logits.
 4. Train with the sum of the cross-entropy losses on the start and end positions (AdamW, constant schedule with warmup).
+5. Score predictions on the validation set with Exact Match and F1, using the [FQuAD paper](https://arxiv.org/abs/2002.06071)'s adaptation of the SQuAD evaluation. Case, punctuation and French articles are ignored, and each prediction is compared with every gold answer.
 
 ## Results
 
-The Transformer-head notebook was trained for 3 epochs on a Colab GPU. It reached an evaluation loss of 12.4. It also scored 71.5% on an overlap metric over the 3,188 FQuAD validation questions: a prediction counts as correct if its span overlaps the gold answer at all. This is a lenient metric, not the Exact Match / F1 scores usually reported for FQuAD, so it can't be compared with published results.
+No Exact Match / F1 scores are available yet: they require re-running the fine-tuning notebooks.
 
-The BiLSTM run was not trained to completion, so no result is reported for it.
+The 2020 run of the Transformer-head notebook (3 epochs on a Colab GPU) was scored with an earlier, more lenient metric that counted a prediction as correct if its span overlapped the gold answer at all. By that measure, 71.5% of the 3,188 FQuAD validation questions were answered correctly. That figure can't be compared with Exact Match / F1 or with published FQuAD results.
+
+The 2020 BiLSTM run was not trained to completion, so no result is reported for it.
 
 ## Running the notebooks
 
