@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# FQuAD data (not redistributable, download separately)
+*.json
+
+# Generated outputs and model weights
+*.csv
+*.pt
+*.bin
+
+# OS
+.DS_Store
