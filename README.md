@@ -11,7 +11,7 @@ This is an archived internship project from 2020. It explores:
 
 | Notebook | What it does |
 |---|---|
-| [`01_pretrained_qa_inference`](notebooks/01_pretrained_qa_inference.ipynb) | Answers a question with [`fmikaelian/camembert-base-fquad`](https://huggingface.co/fmikaelian/camembert-base-fquad) and plots per-token start/end scores. |
+| [`01_pretrained_qa_inference`](notebooks/01_pretrained_qa_inference.ipynb) | Answers a question with [`AgentPublic/camembert-base-squadFR-fquad-piaf`](https://huggingface.co/AgentPublic/camembert-base-squadFR-fquad-piaf) and plots per-token start/end scores. |
 | [`02_long_context_inference`](notebooks/02_long_context_inference.ipynb) | Handles contexts longer than CamemBERT's 512-token limit by splitting them into chunks and keeping the best-scoring answer. |
 | [`03_finetune_transformer_head`](notebooks/03_finetune_transformer_head.ipynb) | Fine-tunes `camembert-base` + 2 Transformer encoder blocks on FQuAD. |
 | [`04_finetune_bilstm_head`](notebooks/04_finetune_bilstm_head.ipynb) | Fine-tunes `camembert-base` + a BiLSTM on FQuAD. |
