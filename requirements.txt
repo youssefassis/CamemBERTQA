@@ -1,8 +1,11 @@
-# Versions used in 2020; the notebooks rely on the transformers 2.x API.
-torch==1.5.0
-transformers==2.9.1
-pandas==1.0.3
-numpy==1.18.4
-tqdm==4.41.1
-matplotlib==3.2.1
-seaborn==0.10.1
+# Tested with Python 3.12.
+torch==2.14.0
+transformers==5.17.0
+sentencepiece==0.2.2
+# Needed to convert the pretrained QA model's SentencePiece tokenizer
+protobuf==7.36.2
+pandas==3.0.6
+numpy==2.5.3
+tqdm==4.70.1
+matplotlib==3.11.2
+seaborn==0.13.2

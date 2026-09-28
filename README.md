@@ -36,13 +36,15 @@ The 2020 BiLSTM run was not trained to completion, so no result is reported for 
 
 ## Running the notebooks
 
-The code targets the 2020 `transformers` 2.x API (`transformers.modeling_camembert`, tuple outputs), which later versions removed. Use the pinned versions:
+The notebooks are tested with Python 3.12 and the versions pinned in `requirements.txt`:
 
 ```bash
-python3.7 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+python3.12 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt notebook
 jupyter notebook
 ```
+
+The fine-tuning notebooks also run on Google Colab: their first code cell installs the pinned `transformers` version.
 
 The fine-tuning notebooks need a GPU and the FQuAD JSON files (`train.json`, `valid.json`) in the working directory. The dataset is licensed separately and is not included in this repository. Request it from the [FQuAD website](https://fquad.illuin.tech/).
 
