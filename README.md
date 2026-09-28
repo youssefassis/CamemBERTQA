@@ -21,7 +21,7 @@ This is an archived internship project from 2020. It explores:
 Both fine-tuning notebooks share the same pipeline:
 
 1. Flatten the SQuAD-format JSON into `(context, question, answer)` rows. Training contexts are limited to 500 characters.
-2. Encode `question + context`, then locate the answer's start and end token positions.
+2. Encode `question + context` (truncated to 512 tokens), and map the answer's character span to token positions using the tokenizer's offsets. Answers cut off by truncation point at `<s>`.
 3. Feed CamemBERT's hidden states through the custom head, then a linear layer that outputs start and end logits.
 4. Train with the sum of the cross-entropy losses on the start and end positions (AdamW, constant schedule with warmup).
 5. Score predictions on the validation set with Exact Match and F1, using the [FQuAD paper](https://arxiv.org/abs/2002.06071)'s adaptation of the SQuAD evaluation. Case, punctuation and French articles are ignored, and each prediction is compared with every gold answer.
